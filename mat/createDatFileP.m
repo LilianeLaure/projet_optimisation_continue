@@ -40,4 +40,6 @@ fprintf(file,';\n\n');
 % Fin de fichier
 fprintf(file,'end;');
 
+fclose(file);
+
 end
