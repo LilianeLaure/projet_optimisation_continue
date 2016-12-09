@@ -9,7 +9,7 @@ dim = fscanf(file, '%i', 2);
 
 C = fscanf(file,' %f', [dim(2), dim(1)])'; % objective function
 A = fscanf(file,' %f', [dim(2), dim(1)])'; % constraints matrix
-b = fscanf(file,' %f', [1, dim(2)]);
+b = fscanf(file,' %f', [1, dim(1)]);
 
 fclose(file);
 end
