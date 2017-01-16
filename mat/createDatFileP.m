@@ -33,8 +33,14 @@ end
 fprintf(file,';\n\n');
 
 % Ecriture de b
-fprintf(file,'param b := ');
-fprintf(file,'%i  ', b);
+fprintf(file,'param b  \t\t');
+%fprintf(file,'%i\t', 1);
+fprintf(file,':=\n');
+for i=1:m
+    fprintf(file,'\t\t%i\t',i);
+    fprintf(file,'%i\t',b(i));
+    fprintf(file,'\n');
+end
 fprintf(file,';\n\n');
 
 % Fin de fichier
