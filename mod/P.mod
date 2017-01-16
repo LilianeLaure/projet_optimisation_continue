@@ -3,7 +3,7 @@
 #
 #
 #------------------------------------------
-# Exemple de modele avec gmpl  
+# 
 #------------------------------------------
 
 #--- Nombre de variables et paramètres
