@@ -13,6 +13,9 @@ fun = @(x) f(X0,C);
 
 %x = ga(fun,m*n,A,b,Aeq,beq,lb,ub,[1:m*n])
 
+% J'ai mis en commentaire les trucs de Elise mais 
+% même ce qui est en dessous ne sert à rien
+
 src_file = '../dat/1/a05100';
 [C,A,b] = loadfile(src_file);
 [m,n] = size(A);
