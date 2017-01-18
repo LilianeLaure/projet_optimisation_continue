@@ -6,7 +6,11 @@ function Y=f(X,C)
     Xnew=[X(1,:)];
     for i=2:m
         Cnew=[Cnew,C(i,:)];
-        Xnew=[Xnew,X(i,:)];
+        Cnew=[Xnew,
     end
-    Y=Cnew*Xnew';
+    
+        for j=1:n
+            Y=Y+C(i,j)*X(i,j);
+        end
+    end
 end

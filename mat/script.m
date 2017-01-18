@@ -1,39 +1,30 @@
-% [C, A, b] = loadfile(src_file);
-% size(A)
-% X0=zeros(size(C));%point initial
-fun = @(x) f(X0,C);
-% Aeq=ones(size(C));
-% [m,n]=size(Aeq)
-% beq=ones(1,m);
-% lb = zeros(m,n);
-% ub = ones(m,n);
-% option = optimoptions('patternsearch','TolMesh',0.9,'ScaleMesh',false);
-% x = patternsearch(fun,X0,A,b',Aeq,beq,lb,ub,[])
-% x = ga(fitnessfcn,nvars)
+%PAS FINI 
 
-%x = ga(fun,m*n,A,b,Aeq,beq,lb,ub,[1:m*n])
-
-% J'ai mis en commentaire les trucs de Elise mais 
-% même ce qui est en dessous ne sert à rien
-
+%On prend les valeurs 
 src_file = '../dat/1/a05100';
 [C,A,b] = loadfile(src_file);
 [m,n] = size(A);
-Xo = zeros(m,n);
-Xo(:,1) = 1;
-Asub = zeros(1,m);
-Aeq = zeros(1,n);
+X0=zeros(m,n);%X0 de la taille de A
+fun = @(x) f(X0,C);
+
+%matrice des contraintes
+B=zeros(m,2*n);
 for i=1:m
-    for j=1:n
-        Asub(i) = Asub(i) + A(i,j)*Xo(i,j);
-    end
+    B(i,1+(i-1)*n:i*n)=A(i,:);
 end
 
-for j=1:n
-    for i=1:m
-        Aeq(j) = Aeq(j) + Xo(i,j); 
-    end
+Aeq=diag(ones(1,n));
+for i=2:m
+    Aeq=[Aeq,diag(ones(1,n))];
 end
-beq = ones(1,n);
 
-Sol = patternsearch(fun,Xo,Asub,b,Aeq,beq);
+beq=ones(n,1);
+lb = zeros(m*n,1);
+ub = ones(m*n,1);
+X0=zeros(m*n,1);
+x = patternsearch(fun,X0,B,b,Aeq,beq,lb,ub,@mycon)
+
+% x = ga(fitnessfcn,nvars)
+
+
+
