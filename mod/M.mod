@@ -33,5 +33,5 @@ s.t. capacity2{ i in I, k in I }: (sum{j in J:j<>k}a[i,j]*x[i,j]) - (sum{j in J:
 s.t. capacity3{j in J}: sum{i in I}x[i,j]=1;
 
 #--- Critere a optimiser 
-minimize profit: sum{i in I}sum{j in J} c[i,j]*x[i,j];
+minimize Objective: sum{i in I}sum{j in J} c[i,j]*x[i,j];
  

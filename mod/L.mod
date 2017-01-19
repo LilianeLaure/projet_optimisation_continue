@@ -35,6 +35,6 @@ s.t. capacity5{i in I,j in J, k in I}: z[i,j,k] <= x[i,k];
 s.t. capacity6{i in I,j in J, k in I}: x[i,k]+x[i,j]-z[i,j,k] <= 1;
 
 #--- Critere a optimiser 
-minimize profit: sum{i in I}sum{j in J} c[i,j]*x[i,j];
+minimize Objective: sum{i in I}sum{j in J} c[i,j]*x[i,j];
 
 #--- END

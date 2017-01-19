@@ -6,8 +6,8 @@ reset;
 
 #---- Options 
 
-option solver xpress; 
-option xpress_options "maxtime=7200";
+option solver cplex; 
+option cplex_options "timelimit=7200";
  
 #----Output filename  
 param OUTPUTFILE symbolic; 
@@ -41,7 +41,7 @@ param NumInstance integer default 0;
 
 #---- Log headings 
 printf "# Experience : Resolution P et sa relaxation LP \n" >> (OUTPUTFILE); 
-printf "# Solver     : Xpress \n" >> (OUTPUTFILE); 
+printf "# Solver     : cplex \n" >> (OUTPUTFILE); 
 printf "# Maxtime    : 2 heures \n\n" >> (OUTPUTFILE); 
 
 printf "#   %4s %4s %12s %12s %12s %12s \n", 'M', 'N', 'OPT', 'TIME', 'LPOPT','LPTIME' >> (OUTPUTFILE);

@@ -25,6 +25,6 @@ s.t. constraint1 {i in I}: sum{j in J}a[i,j]*x[i,j] <= b[i];
 s.t. constraint2 {j in J}: sum{i in I}x[i,j] == 1;
 
 #--- Critere a optimiser 
-minimize profit: sum{i in I}sum{j in J}c[i,j]*x[i,j];
+minimize Objective: sum{i in I}sum{j in J}c[i,j]*x[i,j];
 
 
