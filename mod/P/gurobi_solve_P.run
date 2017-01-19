@@ -11,7 +11,7 @@ option gurobi_options "timelim=7200";
  
 #----Output filename  
 param OUTPUTFILE symbolic; 
-let OUTPUTFILE := 'logsampl_P.txt';
+let OUTPUTFILE := 'mod/logsampl_P.txt';
 
 #---- Instances 
 param nbrInstances := 7; 

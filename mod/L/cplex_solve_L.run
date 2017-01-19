@@ -11,13 +11,13 @@ option cplex_options "timelimit=7200";
  
 #----Output filename  
 param OUTPUTFILE symbolic; 
-let OUTPUTFILE := 'logsampl_L.txt';
+let OUTPUTFILE := 'mod/logsampl_L.txt';
 
 #---- Instances 
-param nbrInstances := 7; 
+param nbrInstances := 3; 
 
 set Instances default {};
-let Instances := {"dat/a05100.dat","dat/a05200.dat","dat/a20200.dat","dat/b05100.dat","dat/b20200.dat","dat/c05100.dat","dat/c20400.dat"}; 
+let Instances := {"dat/a05100.dat","dat/a05200.dat","dat/b05100.dat"}; 
 
 #---- For logs 
 param Nrows {1 .. nbrInstances}; 
@@ -33,14 +33,14 @@ param LPTime {1 .. nbrInstances};
 
 
 #---- Models and problems
-model mod/L.mod; 
+model mod/L/L.mod; 
 
-problem MIP: x, capacity1, capacity2 capacity3, capacity4, capacity5, capacity6, Objective;
+problem MIP: x, capacity1, capacity2, capacity3, Objective;
 
 param NumInstance integer default 0; 
 
 #---- Log headings 
-printf "# Experience : Resolution P et sa relaxation LP \n" >> (OUTPUTFILE); 
+printf "# Experience : Resolution L et sa relaxation LP \n" >> (OUTPUTFILE); 
 printf "# Solver     : cplex \n" >> (OUTPUTFILE); 
 printf "# Maxtime    : 2 heures \n\n" >> (OUTPUTFILE); 
 

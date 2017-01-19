@@ -30,6 +30,7 @@ var x{i in I,j in J}, binary;
 s.t. capacity1{i in I, k in I}: sum{j in J}a[i,j]*z[i,j,k] <= (b[i]-a[i,k])*x[i,k] ;
 s.t. capacity2{ i in I, k in I }: sum{j in J:j<>k}a[i,j]*x[i,j] - sum{j in J:j<>k}a[i,j]*z[i,j,k] <= b[i]-b[i]*x[i,k];
 s.t. capacity3{j in J}: sum{i in I}x[i,j] = 1;
+
 s.t. capacity4{i in I,j in J, k in I}: z[i,j,k] <= x[i,j];
 s.t. capacity5{i in I,j in J, k in I}: z[i,j,k] <= x[i,k];
 s.t. capacity6{i in I,j in J, k in I}: x[i,k]+x[i,j]-z[i,j,k] <= 1;

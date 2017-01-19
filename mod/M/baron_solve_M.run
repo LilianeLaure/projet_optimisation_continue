@@ -6,18 +6,18 @@ reset;
 
 #---- Options 
 
-option solver xpress; 
-option xpress_options "maxtime=7200";
+option solver baron; 
+option baron_options "maxtime=7200";
  
 #----Output filename  
 param OUTPUTFILE symbolic; 
-let OUTPUTFILE := 'mod/logsampl_P.txt';
+let OUTPUTFILE := 'mod/logsampl_M.txt';
 
 #---- Instances 
-param nbrInstances := 7; 
+param nbrInstances := 3; 
 
 set Instances default {};
-let Instances := {"dat/a05100.dat","dat/a05200.dat","dat/a20200.dat","dat/b05100.dat","dat/b20200.dat","dat/c05100.dat","dat/c20400.dat"}; 
+let Instances := {"dat/a05100.dat","dat/a05200.dat","dat/b05100.dat"}; 
 
 #---- For logs 
 param Nrows {1 .. nbrInstances}; 
@@ -33,15 +33,15 @@ param LPTime {1 .. nbrInstances};
 
 
 #---- Models and problems
-model mod/P.mod; 
+model mod/M/M.mod; 
 
-problem MIP: x, constraint1, constraint2, Objective;
+problem MIP: x, capacity1, capacity2, capacity3, Objective;
 
 param NumInstance integer default 0; 
 
 #---- Log headings 
-printf "# Experience : Resolution P et sa relaxation LP \n" >> (OUTPUTFILE); 
-printf "# Solver     : Xpress \n" >> (OUTPUTFILE); 
+printf "# Experience : Resolution M et sa relaxation LP \n" >> (OUTPUTFILE); 
+printf "# Solver     : baron \n" >> (OUTPUTFILE); 
 printf "# Maxtime    : 2 heures \n\n" >> (OUTPUTFILE); 
 
 printf "#   %4s %4s %12s %12s %12s %12s \n", 'M', 'N', 'OPT', 'TIME', 'LPOPT','LPTIME' >> (OUTPUTFILE);
