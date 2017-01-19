@@ -1,0 +1,15 @@
+[C, A, b] = loadfile('dat/1/a05100');
+M=size(C,1);
+N=size(C,2);
+
+C = unique(reshape( C,1,[] ) )
+A=
+
+% Aeq=ones(N,M);
+% beq=ones(1,N);
+% 
+% lb=zeros(1,M);
+% up=ones(1,M);
+
+intcon=C(1:M, 1:N);
+y=intlinprog(C,intcon,A,b') %,Aeq, beq,lb,up);

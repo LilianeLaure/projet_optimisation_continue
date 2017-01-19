@@ -1,4 +1,4 @@
-function [] = createDatFileP( filename, C, A, b )
+function [] = createDatFile( filename, C, A, b )
 
 file = fopen(filename,'w');
 [m,n] = size(C);
