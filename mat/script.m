@@ -3,9 +3,14 @@
 %On prend les valeurs 
 src_file = '../dat/1/a05100';
 [C,A,b] = loadfile(src_file);
+
 [m,n] = size(A);
-X0=zeros(m,n);%X0 de la taille de A
-fun = @(x) f(X0,C);
+X0=zeros(m*n,1);%X0 de la taille de A mais en vecteur colonne
+Cnew=[C(1,:)];
+for i=2:m
+    Cnew=[Cnew,C(i,:)]; %on transforme C en vecteur ligne
+end
+fun = @(x) f(X0,Cnew);
 
 %matrice des contraintes
 B=zeros(m,2*n);
@@ -25,6 +30,3 @@ X0=zeros(m*n,1);
 x = patternsearch(fun,X0,B,b,Aeq,beq,lb,ub,@mycon)
 
 % x = ga(fitnessfcn,nvars)
-
-
-

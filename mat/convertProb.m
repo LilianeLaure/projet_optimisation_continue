@@ -1,5 +1,4 @@
 function [ C, Ain, b, Aeq, beq ] = convertProb(C, A, b)
-
 % dimensions du pb
 [m,n] = size(C);
 
