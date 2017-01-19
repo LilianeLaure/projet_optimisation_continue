@@ -13,8 +13,12 @@ lb = zeros(1,m*n);      % lower bound
 ub = ones(1,m*n);       % upper bound
 intcon = ones(1,m*n);   % all variables are integers
 
-% résolution
-x = intlinprog(C,intcon,Ain1,b1,Aeq1,beq1,lb,ub);
-x = reshape(x,[m,n]);
+% résolution intlinprog
+x = intlinprog(C1,intcon,Ain1,b1,Aeq1,beq1,lb,ub);
+%x = reshape(x,[m,n]);
+
+fun = @(x) C1'*x;
+
+x_pattern = patternsearch(fun,x,Ain1,b1,Aeq1,beq1,lb,ub);
 
 %end
