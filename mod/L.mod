@@ -6,15 +6,13 @@
 # 
 #------------------------------------------
 
-
-#--- Dimensions
-param N, integer, > 0; 
-param M, integer, > 0;
+param N, integer, > 0;			# nbr colonnes
+param M, integer, > 0;			# nbr lignes
 
 
 #--- Indices
-set I := 1..M; # lignes
-set J := 1..N; # colonnes
+set I := 1..M;					# indices lignes
+set J := 1..N;					# indices colonnes
 
 
 #--- Paramètres
@@ -38,4 +36,5 @@ s.t. capacity6{i in I,j in J, k in I}: x[i,k]+x[i,j]-z[i,j,k] <= 1;
 
 #--- Critere a optimiser 
 minimize profit: sum{i in I}sum{j in J} C[i,j]*x[i,j];
- 
+
+#--- END
