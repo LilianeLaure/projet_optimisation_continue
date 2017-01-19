@@ -13,18 +13,18 @@ set I := 1..M;					# indices lignes
 set J := 1..N;					# indices colonnes
 
 #--- Paramètres
-param C{i in I, j in J};	# Coefficients de la fonc. objectif 
-param A{i in I, j in J};	# Coefficients de la matrice des contraintes 
+param c{i in I, j in J};	# Coefficients de la fonc. objectif 
+param a{i in I, j in J};	# Coefficients de la matrice des contraintes 
 param b{i in I};			# Second membre des contraintes
 
 #--- Variables de decision
 var x{i in I, j in J}, binary;
 
 #--- Contraintes du probleme
-s.t. constraint1 {i in I}: sum{j in J}A[i,j]*x[i,j] <= b[i];
+s.t. constraint1 {i in I}: sum{j in J}a[i,j]*x[i,j] <= b[i];
 s.t. constraint2 {j in J}: sum{i in I}x[i,j] == 1;
 
 #--- Critere a optimiser 
-minimize profit: sum{i in I}sum{j in J}C[i,j]*x[i,j];
+minimize profit: sum{i in I}sum{j in J}c[i,j]*x[i,j];
 
 

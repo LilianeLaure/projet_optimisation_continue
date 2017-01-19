@@ -11,7 +11,7 @@ fprintf(file,'param M := %i;\n',m);
 fprintf(file,'param N := %i;\n\n',n);
 
 % Ecriture de C
-fprintf(file,'param C :\t');
+fprintf(file,'param c :\t');
 fprintf(file,'%i\t', 1:n);
 fprintf(file,':=\n');
 for i=1:m
@@ -22,7 +22,7 @@ end
 fprintf(file,';\n\n');
 
 % Ecriture de A
-fprintf(file,'param A :\t');
+fprintf(file,'param a :\t');
 fprintf(file,'%i\t', 1:n);
 fprintf(file,':=\n');
 for i=1:m
